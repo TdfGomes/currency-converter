@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { SyntheticEvent, useState } from "react";
 
-interface Option {
+export interface Option {
   value: string;
   label: string;
 }
 
 interface SelectProps {
-  defaultValue: string;
+  value: string;
   name: string;
   onChange: (e: string) => void;
   options: Option[];
@@ -15,17 +15,30 @@ interface SelectProps {
 const getDefaultValue = (defaultValue: string, options: Option[]) =>
   options.find(({ value, label }) => value === defaultValue || label === defaultValue);
 
-function Select({ defaultValue, name, onChange, options }: SelectProps) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedValue, setValue] = useState<Option | undefined>(
-    getDefaultValue(defaultValue, options),
+function SelectedValue({ value }: { value?: Option }) {
+  return (
+    <div>
+      <img src={`${value?.value}`} alt={`img-for-${value?.value}`} />
+      <span>{value?.label}</span>
+    </div>
   );
+}
+function Select({ value, name, onChange, options }: SelectProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedValue, setValue] = useState<Option | undefined>(getDefaultValue(value, options));
 
-  const toggleListBox = () => setIsOpen((prevState) => !prevState);
+  const toggleListBox = (e: SyntheticEvent) => {
+    e.preventDefault();
 
-  const handleOnSelect = (value: Option) => () => {
+    setIsOpen((prevState) => !prevState);
+  };
+
+  const handleOnSelect = (value: Option) => (e: SyntheticEvent) => {
+    e.preventDefault();
+
     onChange(value.value);
     setValue(value);
+    toggleListBox(e);
   };
 
   const id = name.toLowerCase();
@@ -36,14 +49,13 @@ function Select({ defaultValue, name, onChange, options }: SelectProps) {
         role="combobox"
         id={id}
         value={selectedValue?.value}
-        defaultValue={defaultValue}
         aria-controls={`${id}-listbox`}
         aria-haspopup="listbox"
         tabIndex={0}
         onClick={toggleListBox}
         aria-expanded={`${isOpen}`}
       >
-        {selectedValue?.label}
+        <SelectedValue value={selectedValue} />
       </button>
       {isOpen && (
         <ul role="listbox" id={`${id}-listbox`} tabIndex={-1}>

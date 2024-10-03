@@ -4,14 +4,13 @@ import Input from "../Input";
 const mockOnChange = jest.fn();
 
 const props = {
-  defaultValue: "",
   value: "",
   name: "mocked-input",
   onChange: mockOnChange,
 };
 
 test("should be able to type an amount", async () => {
-  const { user } = render(<Input {...props} defaultValue="123" />);
+  const { user } = render(<Input {...props} value="123" />);
 
   expect(screen.getByRole("textbox")).toHaveValue("123");
 

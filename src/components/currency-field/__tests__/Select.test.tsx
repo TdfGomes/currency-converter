@@ -8,7 +8,7 @@ const mockedOptions = [
 ];
 
 const props = {
-  defaultValue: "",
+  value: "",
   name: "mocked-input",
   onChange: mockOnChange,
   options: mockedOptions,
@@ -29,7 +29,7 @@ test("should be able to display a given list of options", async () => {
 });
 
 test("should be able to display the default value", async () => {
-  render(<Select {...props} defaultValue="label-1" />);
+  render(<Select {...props} value="label-1" />);
 
   expect(screen.getByRole("combobox")).toHaveTextContent("Label 1");
 });
@@ -42,6 +42,8 @@ test("should be able to display the selected value", async () => {
   await user.click(screen.getByRole("combobox"));
 
   await user.click(screen.getByRole("option", { name: "Label 2" }));
+
+  expect(mockOnChange).toHaveBeenCalledWith("label-2");
 
   expect(screen.getByRole("combobox")).toHaveTextContent("Label 2");
 });
