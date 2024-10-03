@@ -1,0 +1,26 @@
+{
+  "extends": ["react-app", "react-app/jest", "uphold-react"],
+  "parserOptions": {
+    "requireConfigFile": false,
+    "ecmaVersion": 12,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": ["react-hooks", "prettier"],
+  "env": {
+    "browser": true,
+    "jasmine": true,
+    "jest": true
+  },
+  "rules": {
+    "prettier/prettier": "error"
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
+  }
+}
