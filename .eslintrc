@@ -1,5 +1,5 @@
 {
-  "extends": ["react-app", "react-app/jest", "uphold-react"],
+  "extends": ["react-app", "react-app/jest"],
   "parserOptions": {
     "requireConfigFile": false,
     "ecmaVersion": 12,
