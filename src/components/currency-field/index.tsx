@@ -1,6 +1,7 @@
 import { ChangeEvent } from "react";
 import Input from "./Input";
-import Select, { Option } from "./Select";
+import Select from "./Select";
+import { Option } from "components/types";
 
 interface CurrencyFieldProps {
   amount: string;
