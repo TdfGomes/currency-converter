@@ -1,8 +1,7 @@
-import { ReactNode } from "react";
 import { render } from "utils/test-utils";
 import { useSdk, SdkProvider } from "..";
 
-const Wrapper = ({ children }: { children: ReactNode }) => {
+const Wrapper = ({ children }) => {
   return <SdkProvider>{children}</SdkProvider>;
 };
 

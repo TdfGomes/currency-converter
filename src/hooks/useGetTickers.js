@@ -1,7 +1,6 @@
-import SDK from "@uphold/uphold-sdk-javascript";
 import { useEffect, useState } from "react";
 
-export function useGetTickers(sdk: typeof SDK, ticker = "USD") {
+export function useGetTickers(sdk, ticker = "USD") {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 

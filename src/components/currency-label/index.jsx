@@ -1,6 +1,6 @@
-import { Option } from "components/types";
+import { Option } from "components/prop-types";
 
-function CurrencyLabel({ value }: { value?: Option }) {
+function CurrencyLabel({ value }) {
   return (
     <div>
       <img src={`${value?.value}`} alt={`img-for-${value?.value}`} />
@@ -8,5 +8,9 @@ function CurrencyLabel({ value }: { value?: Option }) {
     </div>
   );
 }
+
+CurrencyLabel.propTypes = {
+  value: Option.isRequired,
+};
 
 export default CurrencyLabel;

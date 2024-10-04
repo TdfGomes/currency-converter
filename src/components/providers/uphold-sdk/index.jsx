@@ -1,14 +1,10 @@
 import SDK from "@uphold/uphold-sdk-javascript";
-import { createContext, ReactNode, useContext, useRef } from "react";
+import { createContext, useContext, useRef } from "react";
 
 const SdkContext = createContext(null);
 SdkContext.displayName = "SdkContext";
 
-interface SdkProviderProps {
-  children: ReactNode;
-}
-
-export function SdkProvider({ children }: SdkProviderProps) {
+export function SdkProvider({ children }) {
   const sdk = useRef(
     new SDK({
       baseUrl: process.env.REACT_APP_BASE_URL,

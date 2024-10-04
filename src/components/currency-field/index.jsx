@@ -1,23 +1,9 @@
-import { ChangeEvent } from "react";
 import Input from "./Input";
 import Select from "./Select";
 import { Option } from "components/types";
+import PropTypes from "prop-types";
 
-interface CurrencyFieldProps {
-  amount: string;
-  currency: string;
-  currencies: Option[];
-  onChangeAmount: (e: ChangeEvent<HTMLInputElement>) => void;
-  onCurrencyChange: (e: string) => void;
-}
-
-function CurrencyField({
-  amount,
-  onChangeAmount,
-  currency,
-  onCurrencyChange,
-  currencies,
-}: CurrencyFieldProps) {
+function CurrencyField({ amount, onChangeAmount, currency, onCurrencyChange, currencies }) {
   return (
     <form>
       <Input name="currency-amount" value={amount} onChange={onChangeAmount} />
@@ -30,5 +16,13 @@ function CurrencyField({
     </form>
   );
 }
+
+CurrencyField.propTypes = {
+  amount: PropTypes.string.isRequired,
+  currency: PropTypes.string.isRequired,
+  currencies: PropTypes.arrayOf(Option),
+  onChangeAmount: PropTypes.func.isRequired,
+  onCurrencyChange: PropTypes.func.isRequired,
+};
 
 export default CurrencyField;

@@ -1,8 +1,7 @@
-import { ReactElement } from "react";
-import { render, RenderOptions } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-function customRender(ui: ReactElement, options?: RenderOptions) {
+function customRender(ui, options) {
   const user = userEvent.setup();
 
   return { user, ...render(ui, { ...options }) };

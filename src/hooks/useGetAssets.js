@@ -1,7 +1,6 @@
-import SDK from "@uphold/uphold-sdk-javascript";
 import { useEffect, useState } from "react";
 
-export function useGetAssets(sdk: typeof SDK) {
+export function useGetAssets(sdk) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
