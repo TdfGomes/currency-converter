@@ -1,9 +1,6 @@
+import CurrencyLabel from "components/currency-label";
+import { Option } from "components/types";
 import { SyntheticEvent, useState } from "react";
-
-export interface Option {
-  value: string;
-  label: string;
-}
 
 interface SelectProps {
   value: string;
@@ -15,14 +12,6 @@ interface SelectProps {
 const getDefaultValue = (defaultValue: string, options: Option[]) =>
   options.find(({ value, label }) => value === defaultValue || label === defaultValue);
 
-function SelectedValue({ value }: { value?: Option }) {
-  return (
-    <div>
-      <img src={`${value?.value}`} alt={`img-for-${value?.value}`} />
-      <span>{value?.label}</span>
-    </div>
-  );
-}
 function Select({ value, name, onChange, options }: SelectProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedValue, setValue] = useState<Option | undefined>(getDefaultValue(value, options));
@@ -55,7 +44,7 @@ function Select({ value, name, onChange, options }: SelectProps) {
         onClick={toggleListBox}
         aria-expanded={`${isOpen}`}
       >
-        <SelectedValue value={selectedValue} />
+        <CurrencyLabel value={selectedValue} />
       </button>
       {isOpen && (
         <ul role="listbox" id={`${id}-listbox`} tabIndex={-1}>
