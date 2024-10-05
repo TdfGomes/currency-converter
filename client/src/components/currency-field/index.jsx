@@ -1,6 +1,6 @@
 import Input from "./Input";
 import Select from "./Select";
-import { Option } from "components/types";
+import { Option } from "components/prop-types";
 import PropTypes from "prop-types";
 
 function CurrencyField({ amount, onChangeAmount, currency, onCurrencyChange, currencies }) {

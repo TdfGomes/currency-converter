@@ -1,7 +1,7 @@
-import CurrencyLabel from "components/currency-label";
-import { Option } from "components/types";
-import PropTypes from "prop-types";
 import { useState } from "react";
+import PropTypes from "prop-types";
+import CurrencyLabel from "components/currency-label";
+import { Option } from "components/prop-types";
 
 const getDefaultValue = (defaultValue, options) =>
   options.find(({ value, label }) => value === defaultValue || label === defaultValue);
@@ -45,7 +45,7 @@ function Select({ value, name, onChange, options }) {
           {options.map(({ value, label }, idx) => (
             <li
               role="option"
-              aria-selected={value === selectedValue.value}
+              aria-selected={value === selectedValue?.value}
               key={`${value}-${idx}`}
               onClick={handleOnSelect({ value, label })}
             >

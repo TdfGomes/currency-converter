@@ -10,7 +10,7 @@ function CurrencyLabel({ value }) {
 }
 
 CurrencyLabel.propTypes = {
-  value: Option.isRequired,
+  value: Option,
 };
 
 export default CurrencyLabel;

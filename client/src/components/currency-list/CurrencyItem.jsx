@@ -13,7 +13,7 @@ function CurrencyItem({ value, currency }) {
 
 export const CurrencyItemProps = PropTypes.shape({
   value: PropTypes.number.isRequired,
-  currency: PropTypes.arrayOf(Option).isRequired,
+  currency: Option.isRequired,
 }).isRequired;
 
 CurrencyItem.propTypes = CurrencyItemProps;
