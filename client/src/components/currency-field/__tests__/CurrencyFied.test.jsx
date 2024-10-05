@@ -21,7 +21,7 @@ test("change events should be called", async () => {
   await user.type(screen.getByRole("textbox"), "14.00");
 
   await user.click(screen.getByRole("combobox"));
-  await user.click(screen.getByRole("option", { name: "Currency 2" }));
+  await user.click(screen.getByRole("option", { name: /Currency 2/ }));
 
   expect(mockOnChangeAmount).toHaveBeenLastCalledWith(
     expect.objectContaining({ target: expect.objectContaining({ value: expect.any(String) }) }),

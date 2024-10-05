@@ -1,18 +1,26 @@
 import { useEffect, useState } from "react";
+import { getAssets } from "services";
 
-export function useGetAssets() {
+export function useGetAssets(mapData) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const getAssets = async () => {
+    const fetchAssets = async () => {
       setIsLoading(true);
       const assets = await getAssets();
-      setData(assets);
+
+      if (mapData) {
+        const mapedData = mapData(assets);
+        setData(mapedData);
+      } else {
+        setData(assets);
+      }
+
       setIsLoading(false);
     };
-    getAssets();
-  }, []);
+    fetchAssets();
+  }, [mapData]);
 
   return {
     data,

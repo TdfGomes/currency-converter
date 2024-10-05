@@ -41,9 +41,9 @@ test("should be able to display the selected value", async () => {
 
   await user.click(screen.getByRole("combobox"));
 
-  await user.click(screen.getByRole("option", { name: "Label 2" }));
+  await user.click(screen.getByRole("option", { name: /Label 2/ }));
 
   expect(mockOnChange).toHaveBeenCalledWith("label-2");
 
-  expect(screen.getByRole("combobox")).toHaveTextContent("Label 2");
+  expect(screen.getByRole("combobox")).toHaveTextContent(/Label 2/);
 });
