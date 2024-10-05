@@ -1,6 +1,6 @@
-const { response } = require("express");
 const express = require("express");
 const SDK = require("@uphold/uphold-sdk-javascript").default;
+const { getAssets } = require("./getAssets");
 
 const PORT = 3001;
 
@@ -18,22 +18,8 @@ app.listen(PORT, () => {
 
 app.get("/assets", async (_req, res) => {
   try {
-    const pageRanges = ["0-149", "150-300"];
-    const [page1, page2] = await Promise.all(
-      pageRanges.map((range) =>
-        sdk.api("/assets", {
-          authenticate: false,
-          queryParams: {
-            q: "type:fiat,cryptocurrency,stablecoin",
-          },
-          method: "GET",
-          headers: {
-            Range: `items=${range}`,
-          },
-        }),
-      ),
-    );
-    res.json(page1.concat(page2));
+    const assets = await getAssets(sdk);
+    res.json(assets);
   } catch (e) {
     console.log(e);
     res.status(500).send(e);
