@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { getTicker } from "services";
 
 export function useGetTickers(currency = "USD") {
   const [data, setData] = useState([]);
@@ -7,8 +8,7 @@ export function useGetTickers(currency = "USD") {
   useEffect(() => {
     const getTickers = async () => {
       setIsLoading(true);
-      const response = await fetch(`/ticker/${currency}`);
-      const tickers = await response.json();
+      const tickers = await getTicker(currency);
       setData(tickers);
       setIsLoading(false);
     };

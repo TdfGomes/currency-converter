@@ -7,8 +7,7 @@ export function useGetAssets() {
   useEffect(() => {
     const getAssets = async () => {
       setIsLoading(true);
-      const response = await fetch("/assets");
-      const assets = await response.json();
+      const assets = await getAssets();
       setData(assets);
       setIsLoading(false);
     };
