@@ -1,20 +1,19 @@
 import { useEffect, useState } from "react";
 
-export function useGetTickers(sdk, ticker = "USD") {
+export function useGetTickers(currency = "USD") {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const getTickers = async () => {
       setIsLoading(true);
-      const tickers = await sdk.getTicker(ticker, {
-        authenticate: false,
-      });
-      setIsLoading(false);
+      const response = await fetch(`/ticker/${currency}`);
+      const tickers = await response.json();
       setData(tickers);
+      setIsLoading(false);
     };
     getTickers();
-  }, [sdk, ticker]);
+  }, [currency]);
 
   return {
     data,

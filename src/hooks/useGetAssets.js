@@ -1,20 +1,19 @@
 import { useEffect, useState } from "react";
 
-export function useGetAssets(sdk) {
+export function useGetAssets() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const getTickers = async () => {
+    const getAssets = async () => {
       setIsLoading(true);
-      const assets = await sdk.paginate(`${process.env.REACT_APP_BASE_URL}/V0/assets`, 1, 150, {
-        authenticate: false,
-      });
-      setIsLoading(false);
+      const response = await fetch("/assets");
+      const assets = await response.json();
       setData(assets);
+      setIsLoading(false);
     };
-    getTickers();
-  }, [sdk]);
+    getAssets();
+  }, []);
 
   return {
     data,
