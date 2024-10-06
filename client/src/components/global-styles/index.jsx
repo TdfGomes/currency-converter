@@ -1,4 +1,5 @@
 import { Global, css } from "@emotion/react";
+import { whiteSmoke } from "ui/colors";
 
 function GlobalStyles() {
   return (
@@ -99,6 +100,7 @@ function GlobalStyles() {
         body,
         html {
           font-family: proxima-nova;
+          background-color: ${whiteSmoke};
         }
       `}
     />

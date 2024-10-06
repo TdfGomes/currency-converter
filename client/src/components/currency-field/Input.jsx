@@ -1,15 +1,17 @@
-import PropTypes from "prop-types";
+import { forwardRef } from "react";
+import * as S from "./styles";
 
-function Input({ name, value, onChange }) {
+function Input({ name, value, onChange, type = "text" }, ref) {
   return (
-    <input type="text" onChange={onChange} value={value} name={name} id={name.toLowerCase()} />
+    <S.Input
+      ref={ref}
+      type={type}
+      onChange={onChange}
+      value={value}
+      name={name}
+      id={name.toLowerCase()}
+    />
   );
 }
 
-Input.propTypes = {
-  name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func,
-};
-
-export default Input;
+export default forwardRef(Input);

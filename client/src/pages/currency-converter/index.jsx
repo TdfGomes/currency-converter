@@ -9,8 +9,11 @@ function CurrencyConverter() {
   const { data: assets } = useGetAssets(mapAssetsToOptions);
   const { data: tickers } = useGetTickers(currency);
 
-  const handleOnAmountChange = (value) => {
-    console.log(value);
+  const handleOnAmountChange = (e) => {
+    const { value } = e.target;
+    if (/^[\s]*(\d+)?$/.test(value)) {
+      setAmount(value);
+    }
   };
   const handleOnCurrencyChange = (value) => {
     console.log(value);

@@ -2,10 +2,11 @@ import Input from "./Input";
 import Select from "./Select";
 import { Option } from "components/prop-types";
 import PropTypes from "prop-types";
+import * as S from "./styles";
 
 function CurrencyField({ amount, onChangeAmount, currency, onCurrencyChange, currencies }) {
   return (
-    <form>
+    <S.CurrencyField>
       <Input name="currency-amount" value={amount} onChange={onChangeAmount} />
       <Select
         value={currency}
@@ -13,7 +14,7 @@ function CurrencyField({ amount, onChangeAmount, currency, onCurrencyChange, cur
         name="currencies-field"
         options={currencies}
       />
-    </form>
+    </S.CurrencyField>
   );
 }
 
