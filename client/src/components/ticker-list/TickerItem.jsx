@@ -2,7 +2,7 @@ import CurrencyLabel from "components/currency-label";
 import { Option } from "components/prop-types";
 import PropTypes from "prop-types";
 
-function CurrencyItem({ value, currency }) {
+function TickerItem({ value, currency }) {
   return (
     <li>
       <span>{value}</span>
@@ -11,11 +11,11 @@ function CurrencyItem({ value, currency }) {
   );
 }
 
-export const CurrencyItemProps = PropTypes.shape({
+export const TickerItemProps = PropTypes.shape({
   value: PropTypes.number.isRequired,
   currency: Option.isRequired,
 }).isRequired;
 
-CurrencyItem.propTypes = CurrencyItemProps;
+TickerItem.propTypes = TickerItemProps;
 
-export default CurrencyItem;
+export default TickerItem;
