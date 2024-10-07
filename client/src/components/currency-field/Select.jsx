@@ -1,20 +1,12 @@
 import { useState, useCallback, useMemo, useRef, useEffect } from "react";
-import { FixedSizeList as List } from "react-window";
 import PropTypes from "prop-types";
 import CurrencyLabel from "components/currency-label";
 import Input from "./Input";
+import List from "./List";
 import { Option } from "components/prop-types";
 import { useDebounce } from "hooks";
 import { getDefaultValue } from "./api";
 import * as S from "./styles";
-
-function ListItem({ style, isSelected, value, onSelect }) {
-  return (
-    <div style={style} role="option" aria-selected={isSelected} onClick={onSelect}>
-      <CurrencyLabel value={value} />
-    </div>
-  );
-}
 
 function Select({ value, name, onChange, options }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,7 +21,7 @@ function Select({ value, name, onChange, options }) {
     }
   }, [isOpen]);
 
-  const handleOnSelect = useCallback(
+  const handleOnChange = useCallback(
     (value) => (e) => {
       e.preventDefault();
 
@@ -76,24 +68,12 @@ function Select({ value, name, onChange, options }) {
         )}
       </S.Select>
       {isOpen && (
-        <S.ListBox role="listbox" id={`${id}-listbox`} tabIndex={-1}>
-          <List
-            itemData={filteredOptions}
-            height={150}
-            itemCount={filteredOptions.length}
-            itemSize={40}
-            width={90}
-          >
-            {({ index, data, style }) => (
-              <ListItem
-                style={style}
-                value={data[index]}
-                onSelect={handleOnSelect(data[index])}
-                isSelected={data[index].value === selectedValue?.value}
-              />
-            )}
-          </List>
-        </S.ListBox>
+        <List
+          options={filteredOptions}
+          id={id}
+          selectedValue={selectedValue?.value}
+          onChange={handleOnChange}
+        />
       )}
     </S.FieldSet>
   );

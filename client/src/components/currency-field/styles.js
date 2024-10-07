@@ -7,6 +7,7 @@ import { normal, xxLarge } from "ui/fontSize";
 export const FieldSet = styled.fieldset({
   outline: "none",
   border: "none",
+  margin: 0,
 });
 
 export const Select = styled.button({
