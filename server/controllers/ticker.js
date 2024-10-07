@@ -13,7 +13,7 @@ exports.getTicker = (sdk) => async (req, res) => {
     const { currency = "USD" } = req.params;
     const response = await sdk.getTicker(currency);
     const tickers = mapTickers(
-      response.filter((t) => code.includes(t.currency)),
+      response.filter((t) => code.includes(t.currency) && t.currency !== currency),
       amount,
     );
 
