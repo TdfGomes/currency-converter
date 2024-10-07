@@ -1,6 +1,6 @@
 export async function getTicker(currency) {
   try {
-    const response = await fetch(`/ticker/${currency}`);
+    const response = await fetch(`/api/ticker/${currency}`);
     return await response.json();
   } catch (e) {
     //log error to an event monitorung tool

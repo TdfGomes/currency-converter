@@ -16,6 +16,6 @@ app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
 
-app.get("/assets", getAssets(sdk));
+app.get("/api/assets", getAssets(sdk));
 
-app.get("/ticker/:currency", getTicker(sdk));
+app.get("/api/ticker/:currency", getTicker(sdk));
