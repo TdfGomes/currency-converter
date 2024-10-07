@@ -1,3 +1,5 @@
+const { mapAssets } = require("./utils");
+
 exports.getAssets = (sdk) => async (_req, res) => {
   try {
     const pageRanges = ["0-149", "150-300"];
@@ -15,7 +17,7 @@ exports.getAssets = (sdk) => async (_req, res) => {
         }),
       ),
     );
-    res.json(page1.concat(page2));
+    res.json(mapAssets(page1.concat(page2)));
   } catch (e) {
     console.log(e);
     res.status(500).send(e);

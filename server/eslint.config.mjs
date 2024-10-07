@@ -3,6 +3,7 @@ import pluginJs from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier";
 import prettierPlugin from "eslint-plugin-prettier";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
+import jestPlugin from "eslint-plugin-jest";
 
 export default [
   {
@@ -10,6 +11,10 @@ export default [
     languageOptions: {
       sourceType: "commonjs",
     },
+  },
+  {
+    files: ["test/**"],
+    ...jestPlugin.configs["flat/all"],
   },
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
