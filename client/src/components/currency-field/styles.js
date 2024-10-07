@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { aliceBlue, lightSlateGrey, slateGrey, white } from "ui/colors";
+import { aliceBlue, darkBlueGrey, lightSlateGrey, slateGrey, white } from "ui/colors";
 import { softDifused } from "ui/shadows";
 import icon from "assets/dropdown-icon.svg";
 import { normal, xxLarge } from "ui/fontSize";
@@ -8,13 +8,14 @@ export const FieldSet = styled.fieldset({
   outline: "none",
   border: "none",
   margin: 0,
+  position: "relative",
 });
 
 export const Select = styled.button({
   border: "none",
   backgroundColor: white,
   borderRadius: 25,
-  padding: "5px 15px",
+  padding: "5px 15px 5px 5px",
   width: 135,
   position: "relative",
   fontSize: normal,
@@ -46,29 +47,39 @@ export const Input = styled.input({
   border: "none",
   backgroundColor: "transparent",
   fontSize: xxLarge,
-  color: lightSlateGrey,
   width: "auto",
   padding: 5,
+  color: darkBlueGrey,
   lineHeight: 1,
   "&:focus": {
     outline: "none",
     border: "none",
   },
+  "&:placeholder": {
+    color: lightSlateGrey,
+  },
 });
 
 export const ListBox = styled.div({
-  maxWidth: 110,
+  maxWidth: 130,
   borderRadius: 5,
   boxShadow: softDifused,
   backgroundColor: white,
-  padding: " 0 8px",
+  padding: 0,
   overflow: "hidden",
+  position: "absolute",
+  top: "calc(100% - 5px)",
+  left: 17,
   ">div": {
     boxSizing: "content-box",
-    paddingRight: 25,
+    paddingRight: 45,
   },
   "[role=option]": {
     cursor: "pointer",
+    transition: "background-color 200ms ease-in-out",
+    "&:hover": {
+      backgroundColor: aliceBlue,
+    },
   },
 });
 

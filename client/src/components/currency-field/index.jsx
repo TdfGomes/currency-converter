@@ -7,7 +7,7 @@ import * as S from "./styles";
 function CurrencyField({ amount, onChangeAmount, currency, onCurrencyChange, currencies }) {
   return (
     <S.CurrencyField>
-      <Input name="currency-amount" value={amount} onChange={onChangeAmount} />
+      <Input name="currency-amount" value={amount} onChange={onChangeAmount} placeholder="0.00" />
       <Select
         value={currency}
         onChange={onCurrencyChange}

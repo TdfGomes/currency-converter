@@ -1,9 +1,9 @@
 import { useState, useCallback, useMemo, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
+import { Option } from "components/prop-types";
 import CurrencyLabel from "components/currency-label";
 import Input from "./Input";
 import List from "./List";
-import { Option } from "components/prop-types";
 import { useDebounce } from "hooks";
 import { getDefaultValue } from "./api";
 import * as S from "./styles";

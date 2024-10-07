@@ -1,6 +1,7 @@
 import { FixedSizeList } from "react-window";
 import PropTypes from "prop-types";
 import CurrencyLabel from "components/currency-label";
+import { Option } from "components/prop-types";
 import * as S from "./styles";
 
 function ListItem({ style, isSelected, value, onChange }) {
@@ -18,7 +19,7 @@ function List({ options, id, selectedValue, onChange }) {
         height={150}
         itemCount={options.length}
         itemSize={40}
-        width={90}
+        width={100}
       >
         {({ index, data, style }) => (
           <ListItem

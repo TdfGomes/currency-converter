@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import * as S from "./styles";
 
-function Input({ name, value, onChange, type = "text" }, ref) {
+function Input({ name, value, onChange, type = "text", placeholder }, ref) {
   return (
     <S.Input
       ref={ref}
@@ -10,6 +10,7 @@ function Input({ name, value, onChange, type = "text" }, ref) {
       value={value}
       name={name}
       id={name.toLowerCase()}
+      placeholder={placeholder}
     />
   );
 }
