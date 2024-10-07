@@ -1,7 +1,7 @@
-import { CurrencyField } from "components";
 import { useState } from "react";
+import { CurrencyField } from "components";
 import { useGetAssets, useGetTickers } from "hooks";
-import { mapAssetsToOptions } from "./api";
+import { isNumber, mapAssetsToOptions } from "./api";
 
 function CurrencyConverter() {
   const [amount, setAmount] = useState("");
@@ -11,7 +11,7 @@ function CurrencyConverter() {
 
   const handleOnAmountChange = (e) => {
     const { value } = e.target;
-    if (/^[\s]*(\d+)?$/.test(value)) {
+    if (isNumber(value.trim())) {
       setAmount(value);
     }
   };
