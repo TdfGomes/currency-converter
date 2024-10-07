@@ -1,3 +1,4 @@
+export const primary = "#49cc68";
 export const slateGrey = "#525e6d";
 export const lightSlateGrey = "#8495a5";
 export const darkBlueGrey = "#3c4a5a";

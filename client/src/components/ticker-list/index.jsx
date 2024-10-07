@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import TickerItem, { TickerItemProps } from "./TickerItem";
+import * as S from "./styles";
 
 const defaulText = "Enter an amount to check the rates.";
 
 function TickerList({ isLoading, fallbackText = defaulText, tickers = [] }) {
   if (isLoading) {
-    return <span role="progressbar" />;
+    return <S.LoadingSpinner role="progressbar" />;
   }
 
   if (!tickers.length) {
