@@ -39,6 +39,7 @@ function Select({ value, name, onChange, options }) {
 
   const toggleListBox = (e) => {
     e.preventDefault();
+    e.stopPropagation();
 
     setIsOpen((prevState) => !prevState);
   };
