@@ -1,6 +1,7 @@
-export async function getTicker(currency) {
+const defaultCode = "CHF,EUR,JPY,GBP,CNY,BTC,ETH,BNB,SOL,ADA";
+export async function getTicker(currency, amount, code = defaultCode) {
   try {
-    const response = await fetch(`/api/ticker/${currency}`);
+    const response = await fetch(`/api/ticker/${currency}?amount=${amount}&code=${code}`);
     return await response.json();
   } catch (e) {
     //log error to an event monitorung tool

@@ -1,26 +1,25 @@
 import { useEffect, useState } from "react";
 import { getTicker } from "services";
 
-export function useGetTickers(currency = "USD", mapData) {
+export function useGetTickers(currency = "USD", amount) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchTicker = async () => {
-      setIsLoading(true);
-      const tickers = await getTicker(currency);
-
-      if (mapData) {
-        const mapedData = mapData(tickers);
-        setData(mapedData);
-      } else {
-        setData(tickers);
+      if (!amount) {
+        setIsLoading(false);
+        return;
       }
 
+      setIsLoading(true);
+      const tickers = await getTicker(currency, amount);
+      setData(tickers);
       setIsLoading(false);
     };
+
     fetchTicker();
-  }, [currency, mapData]);
+  }, [currency, amount]);
 
   return {
     data,
