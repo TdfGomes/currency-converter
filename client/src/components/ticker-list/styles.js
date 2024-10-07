@@ -10,19 +10,19 @@ const spinnerAnimations = keyframes`
 `;
 
 export const TickerList = styled.ul({
-  padding: 0,
+  padding: "0 25px",
   margin: 0,
   width: "100%",
 });
 export const TickerItem = styled.li({
   display: "flex",
   alignItems: "center",
-  gap: 25,
+  justifyContent: "space-between",
+  width: "100%",
   ">span": {
     fontSize: medium,
     color: darkBlueGrey,
     fontWeight: 500,
-    minWidth: 200,
   },
 });
 

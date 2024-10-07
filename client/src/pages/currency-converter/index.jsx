@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CurrencyField } from "components";
+import { Container, CurrencyField } from "components";
 import { useDebounce, useGetAssets, useGetTickers } from "hooks";
 import { isNumber } from "./api";
 import TickerList from "components/ticker-list";
@@ -24,14 +24,16 @@ function CurrencyConverter() {
 
   return (
     <>
-      <CurrencyField
-        amount={amount}
-        currency={currency}
-        currencies={assets}
-        onChangeAmount={handleOnAmountChange}
-        onCurrencyChange={handleOnCurrencyChange}
-      />
-      <TickerList tickers={tickers} isLoading={isLoading} />
+      <Container>
+        <CurrencyField
+          amount={amount}
+          currency={currency}
+          currencies={assets}
+          onChangeAmount={handleOnAmountChange}
+          onCurrencyChange={handleOnCurrencyChange}
+        />
+        <TickerList tickers={tickers} isLoading={isLoading} />
+      </Container>
     </>
   );
 }

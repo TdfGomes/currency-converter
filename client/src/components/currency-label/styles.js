@@ -11,6 +11,7 @@ export const CurrencyLabel = styled.div({
   margin: "5px 0",
   padding: "0 8px",
   color: slateGrey,
+  width: 80,
   ">img": {
     maxWidth: 25,
   },
