@@ -14,11 +14,11 @@ function TickerList({ isLoading, fallbackText = defaulText, tickers = [] }) {
   }
 
   return (
-    <ul>
+    <S.TickerList>
       {tickers.map(({ value, currency }, idx) => (
         <TickerItem key={`${currency.value}-${idx}`} currency={currency} value={value} />
       ))}
-    </ul>
+    </S.TickerList>
   );
 }
 

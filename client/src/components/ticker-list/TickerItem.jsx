@@ -1,18 +1,20 @@
 import CurrencyLabel from "components/currency-label";
 import { Option } from "components/prop-types";
 import PropTypes from "prop-types";
+import { roundValue } from "./api";
+import * as S from "./styles";
 
 function TickerItem({ value, currency }) {
   return (
-    <li>
-      <span>{value}</span>
+    <S.TickerItem>
+      <span>{roundValue(value)}</span>
       <CurrencyLabel value={currency} />
-    </li>
+    </S.TickerItem>
   );
 }
 
 export const TickerItemProps = PropTypes.shape({
-  value: PropTypes.number.isRequired,
+  value: PropTypes.string.isRequired,
   currency: Option.isRequired,
 }).isRequired;
 

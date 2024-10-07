@@ -1,12 +1,30 @@
-import { css, keyframes } from "@emotion/react";
+import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
-import { lightSlateGrey, primary } from "ui/colors";
+import { darkBlueGrey, lightSlateGrey, primary } from "ui/colors";
+import { medium } from "ui/fontSize";
 
 const spinnerAnimations = keyframes`
   to {
     transform: translate(-50%,-50%) rotate(360deg)
   }
 `;
+
+export const TickerList = styled.ul({
+  padding: 0,
+  margin: 0,
+  width: "100%",
+});
+export const TickerItem = styled.li({
+  display: "flex",
+  alignItems: "center",
+  gap: 25,
+  ">span": {
+    fontSize: medium,
+    color: darkBlueGrey,
+    fontWeight: 500,
+    minWidth: 200,
+  },
+});
 
 export const LoadingSpinner = styled.div({
   background: "transparent",

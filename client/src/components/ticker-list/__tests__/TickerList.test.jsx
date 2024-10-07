@@ -2,9 +2,9 @@ import { render, screen } from "utils/test-utils";
 import TickerList from "..";
 
 const tickers = [
-  { value: 123.123, currency: { value: "flag-1", label: "Flag1" } },
-  { value: 321.103, currency: { value: "flag-2", label: "Flag2" } },
-  { value: 452.023, currency: { value: "flag-3", label: "Flag3" } },
+  { value: "123.123", currency: { value: "flag-1", label: "Flag1" } },
+  { value: "321.103", currency: { value: "flag-2", label: "Flag2" } },
+  { value: "452.023", currency: { value: "flag-3", label: "Flag3" } },
 ];
 
 const props = {
