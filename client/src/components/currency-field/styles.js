@@ -19,6 +19,7 @@ export const Select = styled.button({
   width: 135,
   position: "relative",
   fontSize: normal,
+  minHeight: 45,
   "&[aria-expanded=true]": {
     "&:after": {
       transform: "translateY(-50%) rotate(180deg)",
