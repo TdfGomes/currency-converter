@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, CurrencyField, TickerList, Hero } from "components";
+import { Container, CurrencyField, TickerList, Hero, Header } from "components";
 import { useDebounce, useGetAssets, useGetTickers } from "hooks";
 import { isNumber } from "./api";
 
@@ -16,13 +16,13 @@ function CurrencyConverter() {
       setAmount(value);
     }
   };
-  const handleOnCurrencyChange = (value) => {
-    console.log(value);
-    setCurrency(value);
-  };
+  const handleOnCurrencyChange = (value) => setCurrency(value);
+
+  const handleOnLogin = () => console.log("Login In!");
 
   return (
     <>
+      <Header links={["Personal", "Bussiness", "Parteners"]} onLogin={handleOnLogin} />
       <Container>
         <Hero
           title="Currency Converter"
