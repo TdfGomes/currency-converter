@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Container, CurrencyField, TickerList, Hero, Header, Footer } from "components";
-import { useDebounce, useGetAssets, useGetTickers } from "hooks";
+import { useDebounce, useGetAssets, useGetTickers, useSearchParams } from "hooks";
 import { FOOTER_LINKS, DISCLAIMERS } from "./constants";
 import { isNumber } from "./api";
 
 function CurrencyConverter() {
-  const [amount, setAmount] = useState("");
+  const { setParam, getParam } = useSearchParams();
+  const [amount, setAmount] = useState(getParam("amount") || "");
   const debouncedAmount = useDebounce(amount);
-  const [currency, setCurrency] = useState("USD");
+  const [currency, setCurrency] = useState(getParam("currency") || "USD");
   const { data: assets } = useGetAssets();
   const { data: tickers, isLoading } = useGetTickers(currency, debouncedAmount);
 
@@ -15,9 +16,13 @@ function CurrencyConverter() {
     const { value } = e.target;
     if (isNumber(value.trim())) {
       setAmount(value);
+      setParam("amount", value);
     }
   };
-  const handleOnCurrencyChange = (value) => setCurrency(value);
+  const handleOnCurrencyChange = (value) => {
+    setCurrency(value);
+    setParam("currency", value);
+  };
 
   const handleOnLogin = () => console.log("Login In!");
 
