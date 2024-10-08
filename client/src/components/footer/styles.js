@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { aliceBlue, lightSlateGrey, mutedShade, primary } from "ui/colors";
+import { lightSlateGrey, mutedShade, primary } from "ui/colors";
 import { normal, small } from "ui/fontSize";
 
 const borderColor = `hwb(from ${lightSlateGrey} h w b / 0.1 )`;
