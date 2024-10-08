@@ -33,7 +33,7 @@ function Select({ value, name, onChange, options }) {
   );
 
   const filteredOptions = useMemo(
-    () => options.filter((opt) => new RegExp(debouncedQuery, "i").test(opt.label)),
+    () => options?.filter((opt) => new RegExp(debouncedQuery, "i").test(opt.label)),
     [options, debouncedQuery],
   );
 
