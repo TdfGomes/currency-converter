@@ -1,4 +1,4 @@
-const defaultCode = "CHF,EUR,JPY,GBP,CNY,BTC,ETH,BNB,SOL,ADA";
+const defaultCode = "CHF,EUR,JPY,GBP,CNY,BTC,ETH,BNB,SOL,ADA,USD,PLN";
 export async function getTicker(currency, amount, code = defaultCode) {
   try {
     const response = await fetch(`/api/ticker/${currency}?amount=${amount}&code=${code}`);
