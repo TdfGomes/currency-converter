@@ -91,4 +91,5 @@ export const CurrencyField = styled.form({
   justifyContent: "space-between",
   padding: "5px 25px",
   borderRadius: 5,
+  margin: "30px 0",
 });

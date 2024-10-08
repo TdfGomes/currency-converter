@@ -1,7 +1,7 @@
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import { darkBlueGrey, lightSlateGrey, primary } from "ui/colors";
-import { medium } from "ui/fontSize";
+import { large, normal } from "ui/fontSize";
 
 const spinnerAnimations = keyframes`
   to {
@@ -20,10 +20,16 @@ export const TickerItem = styled.li({
   justifyContent: "space-between",
   width: "100%",
   ">span": {
-    fontSize: medium,
+    fontSize: large,
     color: darkBlueGrey,
     fontWeight: 500,
   },
+});
+
+export const P = styled.p({
+  textAlign: "center",
+  fontSize: normal,
+  color: lightSlateGrey,
 });
 
 export const LoadingSpinner = styled.div({

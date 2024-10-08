@@ -10,7 +10,7 @@ function TickerList({ isLoading, fallbackText = defaulText, tickers = [] }) {
   }
 
   if (!tickers.length) {
-    return <p>{fallbackText}</p>;
+    return <S.P>{fallbackText}</S.P>;
   }
 
   return (

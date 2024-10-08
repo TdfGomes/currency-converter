@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { Container, CurrencyField } from "components";
+import { Container, CurrencyField, TickerList, Hero } from "components";
 import { useDebounce, useGetAssets, useGetTickers } from "hooks";
 import { isNumber } from "./api";
-import TickerList from "components/ticker-list";
 
 function CurrencyConverter() {
   const [amount, setAmount] = useState("");
@@ -25,6 +24,10 @@ function CurrencyConverter() {
   return (
     <>
       <Container>
+        <Hero
+          title="Currency Converter"
+          subTitle="Receive competitive and transparent pricing with no hidden spreads. See how we compare."
+        />
         <CurrencyField
           amount={amount}
           currency={currency}
