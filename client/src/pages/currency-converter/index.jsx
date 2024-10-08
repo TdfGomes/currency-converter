@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Container, CurrencyField, TickerList, Hero, Header } from "components";
+import { Container, CurrencyField, TickerList, Hero, Header, Footer } from "components";
 import { useDebounce, useGetAssets, useGetTickers } from "hooks";
+import { FOOTER_LINKS, DISCLAIMERS } from "./constants";
 import { isNumber } from "./api";
 
 function CurrencyConverter() {
@@ -37,6 +38,7 @@ function CurrencyConverter() {
         />
         <TickerList tickers={tickers} isLoading={isLoading} />
       </Container>
+      <Footer quickLinks={FOOTER_LINKS} disclaimers={DISCLAIMERS} />
     </>
   );
 }
