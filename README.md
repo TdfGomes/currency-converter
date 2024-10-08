@@ -1,8 +1,22 @@
-# Getting Started with Create React App
+# Currency Calculator with Uphold SDK 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Prerequisites
+Node.js yarn: Ensure you have [Node.js](https://nodejs.org/en) and [yarn](https://classic.yarnpkg.com/lang/en/docs/install) installed on your system.
+For NodeJS it's recommended to use `nvm` to install the right version of NodeJS
+You will need to have a CLIENT_ID and CLIENT_SECRET to use the uphold SDK 
+You can get one [here](https://wallet-sandbox.uphold.com/login).
+Then you will need to create a `.env.local` file in `server` directory like: 
+
+```env
+REACT_APP_CLIENT_ID = <YOUR-CLIENT-ID>
+REACT_APP_CLIENT_SECRET = <YOUR-CLIENT-SECRET>
+REACT_APP_BASE_URL =  https://api-sandbox.uphold.com
+```
+
+
+## Available Scripts (client)
 
 In the project directory, you can run:
 
@@ -29,15 +43,30 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## Available Scripts (server)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### `yarn start:server`
+Runs the proxy server at [http://localhost:3001](http://localhost:3001)  
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `yarn test`
+Runs the server tests
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Usage
+
+You need to run `yarn install` on both directories (client and server).\
+Then you will need to open one terminal tab or window for each directory and run the start command for each one.
+
+Client terminal
+```bash
+cd client && yarn start
+```
+
+Server terminal
+```bash
+cd server && yarn start:server
+```
+
 
 ## Learn More
 
